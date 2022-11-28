@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane expanded="true" prefHeight="240.0" prefWidth="497.0" style="-fx-background-color: #222831;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <buttonTypes>
+      <ButtonType fx:constant="CANCEL" />
+      <ButtonType fx:constant="APPLY" />
+   </buttonTypes>
+   <content>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="39.0" prefWidth="204.0" style="-fx-text-fill: #EEEEEE;" text="New Album Name">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="albumNameText" prefHeight="40.0" prefWidth="265.0" promptText="album name">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+   </content>
+   <header>
+      <VBox prefHeight="92.0" prefWidth="497.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="68.0" prefWidth="503.0" style="-fx-text-fill: #EEEEEE;" text="Edit Album">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="emptyTextFiledWarning" alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="497.0" text="Plase enter a album name" textFill="RED" visible="false" />
+         </children>
+      </VBox>
+   </header>
+</DialogPane>

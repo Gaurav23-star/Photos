@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane minHeight="196.0" minWidth="100.0" prefHeight="196.0" prefWidth="434.0" style="-fx-background-color:#222831" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.selectAlbumController">
+   <buttonTypes>
+      <ButtonType fx:constant="CANCEL" />
+      <ButtonType fx:constant="OK" />
+   </buttonTypes>
+   <header>
+      <VBox prefHeight="144.0" prefWidth="434.0">
+         <children>
+            <HBox prefHeight="58.0" prefWidth="434.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="434.0" text="Select Album">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.2916666567325592" blue="0.2916666567325592" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.8518518805503845" blue="0.8518518805503845" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="58.0" prefWidth="434.0">
+               <children>
+                  <ChoiceBox fx:id="dropDownMenu" prefHeight="28.0" prefWidth="409.0">
+                     <HBox.margin>
+                        <Insets left="15.0" top="20.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </header>
+</DialogPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="photoHoldBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="315.0" spacing="25.0" style="-fx-background-color: #EEEEEE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.photosLayoutController">
+   <children>
+      <ImageView fx:id="photoImage" disable="true" fitHeight="170.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" translateX="20.0">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+      </ImageView>
+   </children>
+</HBox>

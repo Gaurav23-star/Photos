@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="242.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.SeachByDateController" style="-fx-background-color: #222831;">
+    <header>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+         <children>
+            <Label alignment="CENTER" layoutY="6.0" prefHeight="53.0" prefWidth="480.0" text="Pick A Date Range" style="-fx-text-fill: #EEEEEE;">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="startDatePicker" layoutX="6.0" layoutY="71.0" prefHeight="40.0" prefWidth="222.0" />
+            <DatePicker fx:id="endDatePicker" layoutX="244.0" layoutY="71.0" prefHeight="40.0" prefWidth="222.0" />
+            <Label alignment="CENTER" layoutX="6.0" layoutY="111.0" prefHeight="40.0" prefWidth="222.0" text="Start Date" style="-fx-text-fill: #EEEEEE;" />
+            <Label alignment="CENTER" layoutX="244.0" layoutY="111.0" prefHeight="40.0" prefWidth="222.0" text="End Date" style="-fx-text-fill: #EEEEEE;"/>
+         </children></AnchorPane>
+    </header>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CLOSE" />
+   </buttonTypes>
+</DialogPane>

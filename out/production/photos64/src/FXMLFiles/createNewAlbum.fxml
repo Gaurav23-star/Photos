@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane headerText="Create New Album" minHeight="307.0" minWidth="387.0" prefHeight="307.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.createNewAlbumController"
+            style="-fx-background-color:#EEEEEE">
+   <header>
+      <VBox prefHeight="263.0" prefWidth="387.0">
+         <children>
+            <HBox prefHeight="115.0" prefWidth="400.0">
+               <children>
+                  <TextField fx:id="newAlbumName" alignment="CENTER" prefHeight="31.0" prefWidth="289.0" promptText="New Album name">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="55.0" top="30.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <ListView fx:id="listSelectedPhotos" prefHeight="178.0" prefWidth="388.0" />
+            <Button style="-fx-background-color:#222831; -fx-text-fill:#EEEEEE" fx:id="uploadFromFiles" mnemonicParsing="false" prefHeight="45.0" prefWidth="151.0" text="upload from files" />
+         </children>
+      </VBox>
+   </header>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CANCEL"/>
+   </buttonTypes>
+</DialogPane>
