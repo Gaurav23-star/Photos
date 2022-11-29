@@ -4,17 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class searchByTagController {
+public class searchByTagController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choiceBox1;
@@ -39,6 +43,8 @@ public class searchByTagController {
     private ArrayList<Photo> searchResults = new ArrayList<>();
 
     private User currentUser;
+    EventHandler<MouseEvent> handler = this::eventHandlerOn;
+    EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
 
     public void searchByTag(Dialog<ButtonType> dialog, String userName, ActionEvent actionEvent) throws IOException {
         currentUser = UserDataBaseController.getUserWithName(userName);
@@ -95,16 +101,19 @@ public class searchByTagController {
         String tag2 = null;
         String tag2Value = null;
 
-        if(combinationChoiceBox.getSelectionModel().getSelectedItem() != null && combinationChoiceBox.getSelectionModel().getSelectedItem().equals("AND") || combinationChoiceBox.getSelectionModel().getSelectedItem().equals("OR")){
-            tag2 = choiceBox2.getValue();
-            tag2Value = textField2.getText();
-            listViewSearches.getItems().add(tag1 + ": " + tag1Value + " " + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2 + ": " + tag2Value);
-            tagsToSearch.add(tag1.toLowerCase().trim() + " " + tag1Value.toLowerCase().trim() + " " + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2.toLowerCase().trim() + " " + tag2Value.toLowerCase().trim());
+        if(combinationChoiceBox.getSelectionModel().getSelectedItem() != null && !combinationChoiceBox.getSelectionModel().getSelectedItem().equals("N/A")){
+            if(combinationChoiceBox.getSelectionModel().getSelectedItem().equals("AND") || combinationChoiceBox.getSelectionModel().getSelectedItem().equals("OR")){
+                tag2 = choiceBox2.getValue();
+                tag2Value = textField2.getText();
+                listViewSearches.getItems().add(tag1 + ": " + tag1Value + " " + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2 + ": " + tag2Value);
+                tagsToSearch.add(tag1.toLowerCase().trim() + " " + tag1Value.toLowerCase().trim() + " " + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2.toLowerCase().trim() + " " + tag2Value.toLowerCase().trim());
+            }
         }
         else{
-            if(combinationChoiceBox.getSelectionModel().getSelectedItem().equals("N/A")){
+            if(combinationChoiceBox.getSelectionModel().getSelectedItem() == null || combinationChoiceBox.getSelectionModel().getSelectedItem().equals("N/A")){
+                System.out.println("this is here");
                 listViewSearches.getItems().add(tag1 + ": " + tag1Value);
-                tagsToSearch.add(tag1.toLowerCase().trim() + " " + tag1Value.toLowerCase().trim() + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2 + " " + tag2Value);
+                tagsToSearch.add(tag1.toLowerCase().trim() + " " + tag1Value.toLowerCase().trim() + " " + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2 + " " + tag2Value);
             }
         }
         System.out.println(tagsToSearch.toString());
@@ -116,6 +125,23 @@ public class searchByTagController {
         combinationChoiceBox.getSelectionModel().clearSelection();
         choiceBox2.setVisible(false);
         textField2.setVisible(false);
+
+    }
+
+    public void eventHandlerOn(MouseEvent mouseEvent){
+        Button button = (Button) mouseEvent.getSource();
+        button.setStyle("-fx-background-color:#00ADB5");
+    }
+    public void eventHandlerOff(MouseEvent mouseEvent){
+        Button button = (Button) mouseEvent.getSource();
+        button.setStyle("-fx-background-color:#EEEEEE");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        addToSearchButton.setOnMouseEntered(handler);
+        addToSearchButton.setOnMouseExited(handler2);
 
     }
 }
