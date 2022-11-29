@@ -147,7 +147,7 @@ public class MainController implements Initializable, Serializable {
 
         Photo photo6 = new Photo();
         photo6.setName("photo6");
-        photo6.setImagSrc("/docs/img6.jpg");
+        photo6.setImagSrc("/data/img6.jpg");
         photo6.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto6));
         photo6.setLastModifiedDate(lastModifiedDatePhoto6);
 
