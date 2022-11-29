@@ -4,6 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
+
 public class selectAlbumController {
 
     @FXML

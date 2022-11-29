@@ -18,6 +18,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class UserViewController implements Initializable {
 
 

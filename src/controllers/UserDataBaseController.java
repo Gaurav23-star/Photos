@@ -3,6 +3,15 @@ package src.controllers;
 import java.io.*;
 import java.util.ArrayList;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public abstract class UserDataBaseController implements Serializable {
     private static ArrayList<User> usersList;
     public static void addUser(User user){

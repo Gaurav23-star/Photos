@@ -26,6 +26,15 @@ import java.util.Hashtable;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class DisplayPhotosInAlbumController implements Initializable {
 
     @FXML

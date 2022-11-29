@@ -16,6 +16,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class SeachByDateController {
     @FXML private DatePicker startDatePicker;
     @FXML private DatePicker endDatePicker;

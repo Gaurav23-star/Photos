@@ -13,6 +13,14 @@ import java.util.Hashtable;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
 public class tagsController implements Initializable {
 
     @FXML
@@ -108,12 +116,9 @@ public class tagsController implements Initializable {
         String tag = null;
         if(tagChoiceBox.getValue().equals("other")){
             tag = tagTextField.getText();
-            currentUser.addTag(tag);
-
         }
         else{
-                tag = tagChoiceBox.getValue();
-
+            tag = tagChoiceBox.getValue();
         }
         String newTagValue = tagValueTextField.getText();
 
@@ -179,10 +184,15 @@ public class tagsController implements Initializable {
                 }else{
                     currentPhoto.addNewTag(tag.toLowerCase().trim(), newTagValue.toLowerCase().trim());
                     tagListView.getItems().add(tag.trim() + " : " + newTagValue.trim());
+                    if(!currentUser.containsTag(tag.trim())){
+                        currentUser.addTag(tag.trim());
+                    }
+
                 }
 
             }
         }
+
         tagListView.getSelectionModel().selectLast();
         tagTextField.clear();
         tagValueTextField.clear();

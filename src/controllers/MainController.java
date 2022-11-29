@@ -19,6 +19,17 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
+
+
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class MainController implements Initializable, Serializable {
 
     @FXML
@@ -169,7 +180,7 @@ public class MainController implements Initializable, Serializable {
 
 
         stockUser.addAlbum(stockAlbum);
-
+/*
         Album stockAlbum1 = new Album();
         stockAlbum1.setUsername(stockUser.getName());
         stockAlbum1.setAlbumName("album1");
@@ -206,7 +217,7 @@ public class MainController implements Initializable, Serializable {
         stockAlbum5.setAlbumName("album5");
         stockAlbum5.addPhoto(photo6);
         stockUser.addAlbum((stockAlbum5));
-
+*/
         UserDataBaseController.addUser(stockUser);
     }
 

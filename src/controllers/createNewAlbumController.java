@@ -20,6 +20,15 @@ import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
 public class createNewAlbumController implements Initializable {
 
     @FXML private TextField newAlbumName;

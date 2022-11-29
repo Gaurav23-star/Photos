@@ -25,6 +25,17 @@ import java.util.ResourceBundle;
 import static src.controllers.UserViewController.currentUser;
 import static src.controllers.UserViewController.userName;
 
+
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
+
 public class searchResultsController implements Initializable {
 
     @FXML

@@ -5,6 +5,16 @@ import javafx.collections.ObservableList;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class Album implements Serializable {
     private String albumName;
     private String username;

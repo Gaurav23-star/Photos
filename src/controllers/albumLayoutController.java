@@ -19,6 +19,15 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
 
+
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
 public class albumLayoutController {
     @FXML
     private HBox albumLayoutBox;

@@ -22,6 +22,14 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
 public class AdminController implements Initializable {
     @FXML
     ListView<String> userListView;

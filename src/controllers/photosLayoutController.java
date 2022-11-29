@@ -10,6 +10,15 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class photosLayoutController {
 
     @FXML

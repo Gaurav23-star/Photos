@@ -6,6 +6,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
+
 public class Photo implements Serializable {
     private Hashtable<String, ArrayList<String>> tags = new Hashtable<>();
 

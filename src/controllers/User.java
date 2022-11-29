@@ -9,6 +9,14 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 
+/*
+    Group 64
+
+    Authors
+    gjp81: Gauravkumar Patel
+    sm2246: Sami Munir
+
+ */
 public class User implements Serializable {
     private ArrayList<String> availableTags = new ArrayList<>();
 
@@ -186,6 +194,14 @@ public class User implements Serializable {
             return true;
         }
         return false;
+    }
+
+    public boolean containsTag(String tag){
+        if(availableTags.contains(tag)){
+            return true;
+        }
+        return false;
+
     }
 
 
