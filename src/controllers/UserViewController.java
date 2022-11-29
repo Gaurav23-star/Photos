@@ -123,7 +123,14 @@ public class UserViewController implements Initializable {
         seachByDateController.searchByDate(dialog, userName, actionEvent);
     }
 
-    public void searchByTags(ActionEvent actionEvent) {
+    public void searchByTags(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("../FXMLFiles/searchBYTagDialog.fxml"));
+        DialogPane dateRangePicker = fxmlLoader.load();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setDialogPane(dateRangePicker);
+        searchByTagController searchByTagController = fxmlLoader.getController();
+        searchByTagController.searchByTag(dialog, userName, actionEvent);
     }
 }
 

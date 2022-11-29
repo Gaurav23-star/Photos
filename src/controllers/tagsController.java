@@ -38,6 +38,7 @@ public class tagsController implements Initializable {
     @FXML private TextField tagTextField;
 
     private Photo currentPhoto = null;
+    private User currentUser = null;
     private Hashtable<String, ArrayList<String>> tags = null;
 
     private boolean isEditing = false;
@@ -50,6 +51,7 @@ public class tagsController implements Initializable {
 
     public void manageTags(Photo photo, Dialog<ButtonType> dialog, User user, ListView<String> listView){
         currentPhoto = photo;
+        currentUser = user;
         tags = photo.getTagsHashTable();
 
         for(String userTags : user.getAvailableTags()){
@@ -106,11 +108,12 @@ public class tagsController implements Initializable {
         String tag = null;
         if(tagChoiceBox.getValue().equals("other")){
             tag = tagTextField.getText();
+            currentUser.addTag(tag);
+
         }
         else{
-            if(tagChoiceBox.getValue().equals("person") || tagChoiceBox.getValue().equals("location")){
                 tag = tagChoiceBox.getValue();
-            }
+
         }
         String newTagValue = tagValueTextField.getText();
 
@@ -217,6 +220,17 @@ public class tagsController implements Initializable {
             String tagToEdit = breakString[0].trim();
             String tagValueToEdit = breakString[1].trim();
 
+            if(tagChoiceBox.getItems().contains(tagToEdit) || (tagToEdit.equalsIgnoreCase("location") || tagToEdit.equalsIgnoreCase("person"))){
+                tagChoiceBox.getSelectionModel().select(tagToEdit);
+                tagChoiceBox.setDisable(true);
+            } else{
+                tagChoiceBox.getSelectionModel().select("other");
+                tagTextField.setVisible(true);
+                tagChoiceBox.setDisable(true);
+                tagTextField.setText(tagToEdit);
+                tagTextField.setDisable(true);
+            }
+/*
             if(tagToEdit.equalsIgnoreCase("location")){
                 tagChoiceBox.getSelectionModel().select("location");
                 tagChoiceBox.setDisable(true);
@@ -230,6 +244,8 @@ public class tagsController implements Initializable {
                 tagTextField.setText(tagToEdit);
                 tagTextField.setDisable(true);
             }
+
+ */
 
             valueBeforeEditing = tagValueToEdit;
             tagValueTextField.setText(tagValueToEdit);

@@ -127,8 +127,6 @@ public class DisplayPhotosInAlbumController implements Initializable {
         moveButton.setOnMouseExited(handler2);
         addTagButton.setOnMouseEntered(handler);
         addTagButton.setOnMouseExited(handler2);
-        closeApplicationButton.setOnMouseEntered(handler);
-        closeApplicationButton.setOnMouseExited(handler2);
 
 
 
@@ -353,9 +351,4 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
     }
 
-    public void closeApplication(ActionEvent actionEvent) throws IOException {
-        UserDataBaseController.writeToDataBase();
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.close();
-    }
 }
