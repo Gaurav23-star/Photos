@@ -115,45 +115,45 @@ public class MainController implements Initializable, Serializable {
 
         Photo photo1 = new Photo();
         photo1.setName("photo1");
-        photo1.setImagSrc("/stockPhotos/img1.jpg");
+        photo1.setImagSrc("/data/img1.jpg");
         photo1.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto1));
         photo1.setLastModifiedDate(lastModifiedDatePhoto1);
 
 
         Photo photo2 = new Photo();
         photo2.setName("photo2");
-        photo2.setImagSrc("/stockPhotos/img2.jpg");
+        photo2.setImagSrc("/data/img2.jpg");
         photo2.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto2));
         photo2.setLastModifiedDate(lastModifiedDatePhoto2);
 
 
         Photo photo3 = new Photo();
         photo3.setName("photo3");
-        photo3.setImagSrc("/stockPhotos/img3.jpg");
+        photo3.setImagSrc("/data/img3.jpg");
         photo3.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto3));
         photo3.setLastModifiedDate(lastModifiedDatePhoto3);
 
         Photo photo4 = new Photo();
         photo4.setName("photo4");
-        photo4.setImagSrc("/stockPhotos/img4.jpg");
+        photo4.setImagSrc("/data/img4.jpg");
         photo4.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto4));
         photo4.setLastModifiedDate(lastModifiedDatePhoto4);
 
         Photo photo5 = new Photo();
         photo5.setName("photo5");
-        photo5.setImagSrc("/stockPhotos/img5.jpg");
+        photo5.setImagSrc("/data/img5.jpg");
         photo5.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto5));
         photo5.setLastModifiedDate(lastModifiedDatePhoto5);
 
         Photo photo6 = new Photo();
         photo6.setName("photo6");
-        photo6.setImagSrc("/stockPhotos/img6.jpg");
+        photo6.setImagSrc("/docs/img6.jpg");
         photo6.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto6));
         photo6.setLastModifiedDate(lastModifiedDatePhoto6);
 
         Photo photo7 = new Photo();
         photo7.setName("photo7");
-        photo7.setImagSrc("/stockPhotos/img7.jpg");
+        photo7.setImagSrc("/data/img7.jpg");
         photo7.setPhotoDate(simpleDateFormat.format(lastModifiedDatePhoto7));
         photo7.setLastModifiedDate(lastModifiedDatePhoto7);
 

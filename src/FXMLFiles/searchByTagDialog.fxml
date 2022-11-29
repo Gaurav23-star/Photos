@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.searchByTagController">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.searchByTagController" style="-fx-background-color: #222831;">
     <header>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="480.0">
          <children>
-            <Label alignment="CENTER" layoutY="-1.0" prefHeight="61.0" prefWidth="480.0" text="Select Tag">
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="61.0" prefWidth="480.0" text="Select Tag" style="-fx-text-fill:#EEEEEE">
                <font>
                   <Font size="32.0" />
                </font>
@@ -24,7 +24,7 @@
             <ChoiceBox fx:id="combinationChoiceBox" layoutX="210.0" layoutY="109.0" prefHeight="26.0" prefWidth="61.0" />
             <ChoiceBox fx:id="choiceBox2" layoutX="55.0" layoutY="147.0" prefHeight="30.0" prefWidth="160.0" visible="false" />
             <TextField fx:id="textField2" layoutX="271.0" layoutY="147.0" prefHeight="30.0" prefWidth="160.0" visible="false" />
-            <Button fx:id="addToSearchButton" layoutX="134.0" layoutY="193.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="241.0" text="Add To Search List" onAction="#addTagToSearchList"/>
+            <Button fx:id="addToSearchButton" layoutX="134.0" layoutY="193.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="241.0" text="Add To Search List" onAction="#addTagToSearchList" style="-fx-background-color:#EEEEEE"/>
          </children></AnchorPane>
     </header>
     <content>
