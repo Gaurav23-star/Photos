@@ -146,7 +146,7 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
     public void addNewPhoto(ActionEvent actionEvent) throws IOException {
         FileChooser fc = new FileChooser();
-        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Acceptable files",  "*.JPG", "*.BMP", "*.GIF", "*.JPEG", "*.PNG");
         fc.getExtensionFilters().add(extensionFilter);
 
         File file = fc.showOpenDialog(null);

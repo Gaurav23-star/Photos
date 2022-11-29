@@ -78,7 +78,7 @@ public class createNewAlbumController implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 FileChooser fc = new FileChooser();
-                FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+                FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Acceptable files", "*.JPG", "*.BMP", "*.GIF", "*.JPEG", "*.PNG");
                 fc.getExtensionFilters().add(extensionFilter);
                 File file = fc.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
 
