@@ -74,8 +74,9 @@ public class User implements Serializable {
         for(Album album : albums){
             for(Photo photo : album.getPhotosInAlbum()){
                 LocalDate filedate = Instant.ofEpochMilli(photo.getLastModifiedDate()).atZone(ZoneId.systemDefault()).toLocalDate();
+                System.out.println(photo.getPhotoDate());
                 if(startDate == null && endDate != null){
-
+                    System.out.println("2");
                     if(filedate.isBefore(endDate)){
                         if(!photosInRange.contains(photo)){
                             photosInRange.add(photo);
@@ -89,7 +90,6 @@ public class User implements Serializable {
                             photosInRange.add(photo);
                         }
                     }
-
                 }
                 else if(filedate.isAfter(startDate) && filedate.isBefore(endDate)){
 

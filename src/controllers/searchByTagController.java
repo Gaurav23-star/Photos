@@ -72,12 +72,12 @@ public class searchByTagController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if(combinationChoiceBox.getValue() != "N/A"){
-                    System.out.println(combinationChoiceBox.getValue());
+
                     choiceBox2.setVisible(true);
                     textField2.setVisible(true);
                 }
                 else{
-                    System.out.println(combinationChoiceBox.getValue());
+
                     choiceBox2.setVisible(false);
                     textField2.setVisible(false);
                 }
@@ -120,12 +120,12 @@ public class searchByTagController implements Initializable {
         }
         else{
             if(combinationChoiceBox.getSelectionModel().getSelectedItem() == null || combinationChoiceBox.getSelectionModel().getSelectedItem().equals("N/A")){
-                System.out.println("this is here");
+
                 listViewSearches.getItems().add(tag1 + ": " + tag1Value);
                 tagsToSearch.add(tag1.toLowerCase().trim() + " " + tag1Value.toLowerCase().trim() + " " + combinationChoiceBox.getSelectionModel().getSelectedItem() + " " + tag2 + " " + tag2Value);
             }
         }
-        System.out.println(tagsToSearch.toString());
+
 
         choiceBox1.getSelectionModel().clearSelection();
         choiceBox2.getSelectionModel().clearSelection();

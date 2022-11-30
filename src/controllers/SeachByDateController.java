@@ -42,6 +42,7 @@ public class SeachByDateController {
                 results = user.getPhotosInRange(startDate, endDate);
             }
             if(results != null){
+
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("../FXMLFiles/search.fxml"));
                 AnchorPane root = fxmlLoader.load();

@@ -38,9 +38,7 @@ public class Photo implements Serializable {
 
     public boolean containsTagWithValue(String tag, String value){
         if(tags.containsKey(tag)){
-            System.out.println(tags.get(tag).toString());
             if(tags.get(tag).contains(value)){
-                System.out.println( tag + " contains " + value);
                 return true;
             }
         }

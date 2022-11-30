@@ -125,17 +125,18 @@ public class AdminController implements Initializable {
         if(clickedButton.get() == ButtonType.APPLY){
             String newUserName = textField.getText();
 
-            if(checkForDuplicateUser(newUserName) != true){
-                User newUser = new User();
-                newUser.addTag("location");
-                newUser.addTag("person");
-                newUser.addTag("other");
-                newUser.setName(newUserName);
-                UserDataBaseController.addUser(newUser);
-                AdminController.observableList.add(newUserName);
-                userListView.getSelectionModel().selectLast();
+            if(newUserName != ""){
+                if(checkForDuplicateUser(newUserName) != true){
+                    User newUser = new User();
+                    newUser.addTag("location");
+                    newUser.addTag("person");
+                    newUser.addTag("other");
+                    newUser.setName(newUserName);
+                    UserDataBaseController.addUser(newUser);
+                    AdminController.observableList.add(newUserName);
+                    userListView.getSelectionModel().selectLast();
+                }
             }
-
         }
 
 

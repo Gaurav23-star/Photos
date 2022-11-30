@@ -174,6 +174,7 @@ public class DisplayPhotosInAlbumController implements Initializable {
                 newPhoto.setImagSrc(file.toURI().toString());
                 newPhoto.setName("new photo");
                 newPhoto.setPhotoDate(simpleDateFormat.format(file.lastModified()));
+                newPhoto.setLastModifiedDate(file.lastModified());
             }
             else{
                 newPhoto = duplicatePhoto;

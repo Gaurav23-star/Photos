@@ -101,39 +101,7 @@ public class searchResultsController implements Initializable {
 
     public void createNewAlbumFromResult(ActionEvent actionEvent) throws IOException {
         String newAlbumName = null;
-        do{
-            newAlbumName = showDialogForInputName(false);
-            if(newAlbumName == null){
-                showDialogForInputName(true);
-            }
-        }while (newAlbumName == null);
-
-        if(newAlbumName != null){
-            Album newAlbum = new Album();
-            newAlbum.setAlbumName(newAlbumName);
-            newAlbum.setUsername(userName);
-            for(Photo photo : photos){
-                newAlbum.addPhoto(photo);
-            }
-            currentUser.addAlbum(newAlbum);
-        }
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.getDialogPane().setStyle("-fx-background-color: #222831");
-        alert.setTitle("New Album Created");
-        alert.setHeaderText("New Album: " + newAlbumName + " created!");
-        Optional<ButtonType> buttonType = alert.showAndWait();
-
-        if(buttonType.get() == ButtonType.OK){
-            this.goBack(actionEvent);
-        }
-
-
-
-    }
-
-    public String showDialogForInputName(boolean isSecondTime){
-
+        User currentUser = UserDataBaseController.getUserWithName(userName);
         //load the dialoge box with albums drop down menu
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../fxmlfiles/dialogBox.fxml"));
@@ -153,29 +121,58 @@ public class searchResultsController implements Initializable {
 
         Label titleLable = (Label) vBox.getChildren().get(0);
         titleLable.setText("Create New Album");
-        if(isSecondTime){
-            Label warning = (Label) vBox.getChildren().get(1);
-            warning.setVisible(true);
-        }
         Label promptLable = (Label) newHbox.getChildren().get(0);
         promptLable.setText("New Album");
         TextField textField = (TextField) newHbox.getChildren().get(1);
         textField.setPromptText("new album name");
         textField.positionCaret(0);
         textField.requestFocus();
-        String newAlbumName = null;
         Optional<ButtonType> clickedButton = dialog.showAndWait();
         if(clickedButton.get() == ButtonType.APPLY){
-            if(textField.getText() != null && textField.getText().trim() != ""){
-                return textField.getText();
+            newAlbumName = textField.getText().trim();
+            if(newAlbumName == null || newAlbumName == ""){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.getDialogPane().setStyle("-fx-background-color: #222831");
+                alert.setTitle("Enter Album Name");
+                alert.setHeaderText("You must enter a album name!");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                createNewAlbumFromResult(actionEvent);
+            }else if (currentUser.getAlbumWithName(newAlbumName) != null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.getDialogPane().setStyle("-fx-background-color: #222831");
+                alert.setTitle("Enter Different Name");
+                alert.setHeaderText("Album name you entered already exists!");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                createNewAlbumFromResult(actionEvent);
             }
             else{
-                return null;
+                CreateNewAlbum(newAlbumName,actionEvent );
+
             }
         }
-        return null;
 
 
+
+    }
+
+    public void CreateNewAlbum(String newAlbumName, ActionEvent actionEvent) throws IOException {
+        Album newAlbum = new Album();
+        newAlbum.setAlbumName(newAlbumName);
+        newAlbum.setUsername(userName);
+        for(Photo photo : photos){
+            newAlbum.addPhoto(photo);
+        }
+        currentUser.addAlbum(newAlbum);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setStyle("-fx-background-color: #222831");
+        alert.setTitle("New Album Created");
+        alert.setHeaderText("New Album: " + newAlbumName + " created!");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+
+        if(buttonType.get() == ButtonType.OK){
+            this.goBack(actionEvent);
+        }
 
     }
 }

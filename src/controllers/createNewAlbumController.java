@@ -49,34 +49,58 @@ public class createNewAlbumController implements Initializable {
         Optional<ButtonType> clickedButton = dialog.showAndWait();
 
         if(clickedButton.get() == ButtonType.APPLY){
+            User user = UserDataBaseController.getUserWithName(userName);
+            assert user != null;
 
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm");
-            File myFile;
+            if (user.getAlbumWithName(newAlbumName.getText().trim()) != null){
 
-            if(observableList.size() > 0){
-                Album newAlbum = new Album();
-                newAlbum.setAlbumName(newAlbumName.getText());
-                newAlbum.setUsername(userName);
-                for(int i = 0; i < observableList.size(); i++){
-                    myFile = new File(uris.get(i));
-                    Photo newPhoto = new Photo();
-                    newPhoto.setAlbumName(newAlbum.getAlbumName());
-                    newPhoto.setName(observableList.get(i));
-                    newPhoto.setImagSrc(uris.get(i).toString());
-                    newPhoto.setPhotoDate(simpleDateFormat.format(myFile.lastModified()));
-                    newAlbum.addPhoto(newPhoto);
-                }
-                User user = UserDataBaseController.getUserWithName(userName);
-                if(user != null){
-                    user.addAlbum(newAlbum);
-                }
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.getDialogPane().setStyle("-fx-background-color: #222831");
+                alert.setTitle("Album Exists");
+                alert.setHeaderText("Album with name already exists!");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                createNewAlbum(actionEvent, userName, dialog);
+
             }
-
+            else if(newAlbumName.getText() == null || newAlbumName.getText().trim() == ""){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.getDialogPane().setStyle("-fx-background-color: #222831");
+                alert.setTitle("Enter Album Name");
+                alert.setHeaderText("You must enter a album name!");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                createNewAlbum(actionEvent, userName, dialog);
+            }
+            else{
+                createNewAlbum(userName, user);
+            }
 
         }
 
+    }
 
+    public void createNewAlbum(String userName, User user){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm");
+        File myFile;
 
+        if(observableList.size() > 0){
+            Album newAlbum = new Album();
+            newAlbum.setAlbumName(newAlbumName.getText());
+            newAlbum.setUsername(userName);
+            for(int i = 0; i < observableList.size(); i++){
+                myFile = new File(uris.get(i));
+                Photo newPhoto = new Photo();
+                newPhoto.setAlbumName(newAlbum.getAlbumName());
+                newPhoto.setName(observableList.get(i));
+                newPhoto.setImagSrc(uris.get(i).toString());
+                newPhoto.setPhotoDate(simpleDateFormat.format(myFile.lastModified()));
+                newPhoto.setLastModifiedDate(myFile.lastModified());
+                newAlbum.addPhoto(newPhoto);
+            }
+
+            if(user != null){
+                user.addAlbum(newAlbum);
+            }
+        }
 
     }
 
