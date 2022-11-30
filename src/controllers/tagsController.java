@@ -13,13 +13,17 @@ import java.util.Hashtable;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class controls the adding and removing of tags from the photo.
  */
 public class tagsController implements Initializable {
 
@@ -56,6 +60,13 @@ public class tagsController implements Initializable {
     EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
 
 
+    /**
+     * Method creates and displays dialog box to user to let them manage the tags on selected photo.
+     * @param photo
+     * @param dialog
+     * @param user
+     * @param listView
+     */
 
     public void manageTags(Photo photo, Dialog<ButtonType> dialog, User user, ListView<String> listView){
         currentPhoto = photo;
@@ -112,6 +123,11 @@ public class tagsController implements Initializable {
 
     }
 
+
+    /**
+     * Method to add new user defined tag to the photo.
+     * @param actionEvent
+     */
     public void addNewTag(ActionEvent actionEvent) {
         String tag = null;
         if(tagChoiceBox.getValue().equals("other")){
@@ -200,6 +216,10 @@ public class tagsController implements Initializable {
 
     }
 
+    /**
+     * Method to remove selected tag from the photo.
+     * @param actionEvent
+     */
     public void removeSelectedTag(ActionEvent actionEvent) {
         if(tagListView != null & tagListView.getItems().size() > 0){
             String toRemove = tagListView.getSelectionModel().getSelectedItem();
@@ -223,6 +243,10 @@ public class tagsController implements Initializable {
         }
     }
 
+    /**
+     * Method to let user edit the slected tag of the photo.
+     * @param actionEvent
+     */
     public void editSelectedTag(ActionEvent actionEvent) {
         if(tagListView != null & tagListView.getItems().size() > 0) {
             String toRemove = tagListView.getSelectionModel().getSelectedItem();
@@ -240,23 +264,6 @@ public class tagsController implements Initializable {
                 tagTextField.setText(tagToEdit);
                 tagTextField.setDisable(true);
             }
-/*
-            if(tagToEdit.equalsIgnoreCase("location")){
-                tagChoiceBox.getSelectionModel().select("location");
-                tagChoiceBox.setDisable(true);
-            }else if(tagToEdit.equalsIgnoreCase("person")){
-                tagChoiceBox.getSelectionModel().select("person");
-                tagChoiceBox.setDisable(true);
-            }else{
-                tagChoiceBox.getSelectionModel().select("other");
-                tagTextField.setVisible(true);
-                tagChoiceBox.setDisable(true);
-                tagTextField.setText(tagToEdit);
-                tagTextField.setDisable(true);
-            }
-
- */
-
             valueBeforeEditing = tagValueToEdit;
             tagValueTextField.setText(tagValueToEdit);
             tagTextField.positionCaret(tagToEdit.length());
@@ -268,6 +275,11 @@ public class tagsController implements Initializable {
 
     }
 
+    /**
+     * Method to initialize the event listeners on buttons.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addTagButton.setOnMouseEntered(handler);
@@ -278,6 +290,11 @@ public class tagsController implements Initializable {
         removeTagButton.setOnMouseExited(handler2);
 
     }
+
+    /**
+     * Handlers to to handler event on buttons.
+     * @param mouseEvent
+     */
     public void eventHandlerOn(MouseEvent mouseEvent){
         Button button = (Button) mouseEvent.getSource();
         button.setStyle("-fx-background-color:#00ADB5");

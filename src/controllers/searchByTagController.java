@@ -18,13 +18,19 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class controls the search by tag event.
+ * Displays the dialog box to select tags user wants to search then,
+ * Gets the search results and displays them.
  */
 
 public class searchByTagController implements Initializable {

@@ -18,13 +18,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class controls the userview screen.
  */
 
 public class UserViewController implements Initializable {
@@ -46,8 +50,11 @@ public class UserViewController implements Initializable {
     public static User currentUser;
 
 
-
-
+    /**
+     * Method to log out the user and load the home screen of the application.
+     * @param actionEvent
+     * @throws IOException
+     */
 
     public void logout(ActionEvent actionEvent) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("../FXMLFiles/Main.fxml"));
@@ -58,6 +65,11 @@ public class UserViewController implements Initializable {
         mainStage.show();
     }
 
+    /**
+     * Method to initialize all event listeners on buttons clicking.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         greetUser.setText("Hello, " + userName);
@@ -76,6 +88,10 @@ public class UserViewController implements Initializable {
 
 
     }
+
+    /**
+     * Method creates a new album list view with all the albums user currently has.
+     */
     public void createUserAlbumList(){
             try {
                 for(int i = 0; i < currentUser.getTotalAlbums(); i++){
@@ -93,6 +109,10 @@ public class UserViewController implements Initializable {
 
     }
 
+    /**
+     * Handles the mouse hover event on buttons
+     * @param mouseEvent
+     */
     public void eventHandlerOn(MouseEvent mouseEvent){
         Button button = (Button) mouseEvent.getSource();
         button.setStyle("-fx-background-color:#00ADB5");
@@ -103,6 +123,11 @@ public class UserViewController implements Initializable {
     }
 
 
+    /**
+     * Method load the dialog box to create new album.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void createNewAlbum(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../FXMLFiles/createNewAlbum.fxml"));
@@ -122,6 +147,11 @@ public class UserViewController implements Initializable {
         createUserAlbumList();
     }
 
+    /**
+     * Method loads the dialog box to search by date.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void searchByDate(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../FXMLFiles/searchByDateDialog.fxml"));
@@ -132,6 +162,11 @@ public class UserViewController implements Initializable {
         seachByDateController.searchByDate(dialog, userName, actionEvent);
     }
 
+    /**
+     * Method loads the dialog box to search by tags.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void searchByTags(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../FXMLFiles/searchBYTagDialog.fxml"));

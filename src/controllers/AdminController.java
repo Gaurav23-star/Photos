@@ -22,14 +22,20 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
  */
+
+
+/**
+ * Controller for the admin user screen.
+ */
+
 public class AdminController implements Initializable {
     @FXML
     ListView<String> userListView;
@@ -47,6 +53,12 @@ public class AdminController implements Initializable {
     EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
     public static ObservableList<String> observableList = FXCollections.observableArrayList();
 
+    /**
+     * Method to react on logout request by admin. Loads the home screen of the application.
+     * @param actionEvent
+     * @throws IOException
+     */
+
     public void logout(ActionEvent actionEvent) throws IOException {
         observableList.removeAll();
         userListView.getItems().clear();
@@ -59,6 +71,11 @@ public class AdminController implements Initializable {
     }
 
 
+    /**
+     * Initialize method that loads all required data to present to the admin user.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for(User user : UserDataBaseController.getUsersList()){
@@ -86,6 +103,11 @@ public class AdminController implements Initializable {
 
     }
 
+    /**
+     * Handler to handle the mouse hover event on the buttons.
+     * Chnages background color of the buttons.
+     * @param mouseEvent
+     */
     public void eventHandlerOn(MouseEvent mouseEvent){
         Button button = (Button) mouseEvent.getSource();
         button.setStyle("-fx-background-color:#00ADB5");
@@ -96,6 +118,12 @@ public class AdminController implements Initializable {
     }
 
 
+    /**
+     * Method handles the adding new user request by the admin.
+     * Adds the new user to the database with the given username.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addNewUser(ActionEvent actionEvent) throws IOException {
         //load the dialoge box with albums drop down menu
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -139,8 +167,14 @@ public class AdminController implements Initializable {
             }
         }
 
-
     }
+
+    /**
+     * Method called by add user to check if the user already exists with the new
+     * intended username.
+     * @param username
+     * @return if the user already exists or not
+     */
     public boolean checkForDuplicateUser(String username){
 
         for(User user : UserDataBaseController.getUsersList()){
@@ -151,6 +185,10 @@ public class AdminController implements Initializable {
         return false;
     }
 
+    /**
+     * Deletes the selected user from the userdatabse.
+     * @param actionEvent
+     */
     public void deleteUser(ActionEvent actionEvent) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

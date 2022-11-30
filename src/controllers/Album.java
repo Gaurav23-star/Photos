@@ -6,13 +6,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class represents the album. Stores the Album name, Username which albums belong to,
+ * and list storing all the photos on the album.
  */
 
 public class Album implements Serializable {
@@ -55,6 +60,10 @@ public class Album implements Serializable {
         photosInAlbum.remove(photo);
     }
 
+    /**
+     * Returns a photo to be represented as a thumbnail.
+     * @return
+     */
     public Photo getAlbumThumnail(){
         if(photosInAlbum.size() == 0){
             return null;
@@ -63,6 +72,11 @@ public class Album implements Serializable {
         }
     }
 
+    /**
+     * Returns the photo with passed parameter from the photos list
+     * @param url
+     * @return
+     */
     public Photo getPhotoWithUrl(String url){
         for(Photo photo : this.photosInAlbum){
             if(photo.getImagSrc().equalsIgnoreCase(url)){
@@ -73,6 +87,10 @@ public class Album implements Serializable {
 
     }
 
+    /**
+     * Returns the date range of photos in the album.
+     * @return
+     */
     public String getDateRange(){
         int lowest = 0;
         int highest = 0;

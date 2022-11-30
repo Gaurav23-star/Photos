@@ -26,13 +26,17 @@ import java.util.Hashtable;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class controlls the loading of new screen to display all the photos within a selected album.
  */
 
 public class DisplayPhotosInAlbumController implements Initializable {
@@ -74,6 +78,11 @@ public class DisplayPhotosInAlbumController implements Initializable {
     EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
 
 
+    /**
+     * Method initializes and sets all the data to be presented and events to be handled.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageView = imageDisplayAlone;
@@ -142,6 +151,11 @@ public class DisplayPhotosInAlbumController implements Initializable {
     }
 
 
+    /**
+     * Method loads main userview with list of albums. Goes back to the main user screen.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void goBackToUserView(ActionEvent actionEvent) throws IOException {
         UserViewController.userName = userName;
         AnchorPane root = FXMLLoader.load(getClass().getResource("../FXMLFiles/UserView.fxml"));
@@ -153,6 +167,11 @@ public class DisplayPhotosInAlbumController implements Initializable {
         mainStage.show();
     }
 
+    /**
+     * Method to add new photo on the current album.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addNewPhoto(ActionEvent actionEvent) throws IOException {
         FileChooser fc = new FileChooser();
         FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Acceptable files",  "*.JPG", "*.BMP", "*.GIF", "*.JPEG", "*.PNG");
@@ -202,6 +221,12 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
     }
 
+
+    /**
+     * Method to add/remove the captions from the selected photo.
+     * @param actionEvent
+     */
+
     public void editPhotoDetails(ActionEvent actionEvent) {
         User user = UserDataBaseController.getUserWithName(userName);
         Album album = user.getAlbumWithName(albumName);
@@ -241,6 +266,12 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
     }
 
+    /**
+     * Method to move the selected photo from the current alubm to the user selected destination album.
+     * Photo is removed from the current album and moved to destination album.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void movePhoto(ActionEvent actionEvent) throws IOException {
         User user = UserDataBaseController.getUserWithName(userName);
         Album album = user.getAlbumWithName(albumName);
@@ -273,6 +304,12 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
 
     }
+
+    /**
+     * Method to copy the selected photo to the destination alubm. Photo stays in both albums, current and destination.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void copyPhoto(ActionEvent actionEvent) throws IOException {
         User user = UserDataBaseController.getUserWithName(userName);
         Album album = user.getAlbumWithName(albumName);
@@ -300,6 +337,11 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
 
     }
+
+    /**
+     * Method deletes the selected photo from the current alubm.
+     * @param actionEvent
+     */
     public void deletePhoto(ActionEvent actionEvent){
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -318,6 +360,10 @@ public class DisplayPhotosInAlbumController implements Initializable {
 
     }
 
+    /**
+     * Refreshes the screen displaying all the photos in the album to show updated view.
+     * @param album
+     */
     public void updateThePhotosView(Album album){
         photosBox.getChildren().clear();
         imageView.setImage(null);
@@ -337,6 +383,10 @@ public class DisplayPhotosInAlbumController implements Initializable {
         button.setStyle("-fx-background-color:#EEEEEE");
     }
 
+    /**
+     * Method lets user to add /remove tag from selected photo.
+     * @param actionEvent
+     */
     public void addMoreTag(ActionEvent actionEvent) {
         User user = UserDataBaseController.getUserWithName(userName);
         Album album = user.getAlbumWithName(albumName);

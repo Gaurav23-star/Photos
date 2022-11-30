@@ -10,15 +10,18 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
  */
 
+/**
+ * Class controls the layout of the photo when displaying all the photos with a album
+ */
 public class photosLayoutController {
 
     @FXML
@@ -28,6 +31,11 @@ public class photosLayoutController {
     private ImageView photoImage;
 
 
+    /**
+     * Method displays image of the photos with given its source.
+     * Adds event listeners to handle appropriate events.
+     * @param photo
+     */
     public void setPhotos(Photo photo){
         Image image = new Image(photo.getImagSrc());
         photo.setImagSrc(image.getUrl());

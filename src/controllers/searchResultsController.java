@@ -26,16 +26,20 @@ import static src.controllers.UserViewController.currentUser;
 import static src.controllers.UserViewController.userName;
 
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
  */
 
 
+/**
+ * Class controls the showing of all the search results.
+ * Allows user to go back or create new album containing search results.
+ */
 public class searchResultsController implements Initializable {
 
     @FXML
@@ -87,6 +91,11 @@ public class searchResultsController implements Initializable {
         button.setStyle("-fx-background-color:#EEEEEE");
     }
 
+    /**
+     * Method lets user back to the main userview from search results screen.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void goBack(ActionEvent actionEvent) throws IOException {
         userName = userName;
         AnchorPane root = FXMLLoader.load(getClass().getResource("../FXMLFiles/UserView.fxml"));
@@ -98,6 +107,12 @@ public class searchResultsController implements Initializable {
         mainStage.show();
     }
 
+
+    /**
+     * Method creates a new album from the search results and stores it.
+     * @param actionEvent
+     * @throws IOException
+     */
 
     public void createNewAlbumFromResult(ActionEvent actionEvent) throws IOException {
         String newAlbumName = null;
@@ -155,6 +170,12 @@ public class searchResultsController implements Initializable {
 
     }
 
+    /**
+     * Helper method to create new album from search results.
+     * @param newAlbumName
+     * @param actionEvent
+     * @throws IOException
+     */
     public void CreateNewAlbum(String newAlbumName, ActionEvent actionEvent) throws IOException {
         Album newAlbum = new Album();
         newAlbum.setAlbumName(newAlbumName);

@@ -12,27 +12,41 @@ import javafx.stage.WindowEvent;
 
 import java.io.*;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
-
 
     NOTE TO GRADER: Assignment asks for safe exit out of the application at any time, so there is no extra button,
                     just close the application as you would do in real life and the progress will be saved. Thanks.
 
  */
 
+/**
+ * Class contatining Main method to start the application.
+ */
+
 public class Photos extends Application {
 
+    /**
+     * Main method to start the application.
+     * @param args
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         UserDataBaseController.readFromDataBase();
         launch(args);
     }
 
 
+    /**
+     * Starts the application.Creates an event listener on stage, that will save all the data when application is closed.
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -42,6 +56,7 @@ public class Photos extends Application {
         stage.setScene(mainScene);
         stage.setTitle("Photos");
         stage.setResizable(false);
+
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {

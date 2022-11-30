@@ -21,13 +21,17 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class handles the creating new album and storing it into the database.
  */
 public class createNewAlbumController implements Initializable {
 
@@ -42,6 +46,14 @@ public class createNewAlbumController implements Initializable {
     public  static String albumName;
     EventHandler<MouseEvent> handler = this::eventHandlerOn;
     EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
+
+    /**
+     * Method creates a new Album, and stores it into user's albums list
+     * @param actionEvent
+     * @param userName
+     * @param dialog
+     * @throws IOException
+     */
     public void createNewAlbum(ActionEvent actionEvent, String userName, Dialog dialog) throws IOException {
         //load the dialoge box with albums drop down menu
 
@@ -78,6 +90,11 @@ public class createNewAlbumController implements Initializable {
 
     }
 
+    /**
+     * Helper method to create new album, and put it on user albums list
+     * @param userName
+     * @param user
+     */
     public void createNewAlbum(String userName, User user){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm");
         File myFile;
@@ -104,6 +121,12 @@ public class createNewAlbumController implements Initializable {
 
     }
 
+    /**
+     * Method to initialize all the mouseclick events.
+     * Sets the event on button to open file chooser, when user clicks to add new photo from computer.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //albumName = newAlbumName.getText();
@@ -126,6 +149,10 @@ public class createNewAlbumController implements Initializable {
         uploadFromFiles.setOnMouseExited(handler2);
     }
 
+    /**
+     * Handles the mouse hover event.
+     * @param mouseEvent
+     */
     public void eventHandlerOn(MouseEvent mouseEvent){
         Button button = (Button) mouseEvent.getSource();
         button.setStyle("-fx-background-color:#00ADB5");

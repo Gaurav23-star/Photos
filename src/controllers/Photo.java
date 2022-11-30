@@ -6,13 +6,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 
-/*
+/**
     Group 64
 
     Authors
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class represents the photo.
  */
 
 public class Photo implements Serializable {
@@ -26,6 +30,11 @@ public class Photo implements Serializable {
 
     private long lastModifiedDate;
 
+    /**
+     * Method add new tag to the photo.
+     * @param key
+     * @param value
+     */
     public void addNewTag(String key, String value){
         if(tags.containsKey(key)){
             tags.get(key).add(value);
@@ -36,6 +45,12 @@ public class Photo implements Serializable {
         }
     }
 
+    /**
+     * Method checks for the existence of the tag on photo
+     * @param tag
+     * @param value
+     * @return boolean value based on whether tag is present on photo or not.
+     */
     public boolean containsTagWithValue(String tag, String value){
         if(tags.containsKey(tag)){
             if(tags.get(tag).contains(value)){
@@ -54,6 +69,10 @@ public class Photo implements Serializable {
         }
     }
 
+    /**
+     * All getters and setters for the photo.
+     * @return asked value
+     */
     public String getTags(){
         return tags.toString();
     }

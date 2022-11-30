@@ -6,15 +6,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
  */
 
+/**
+ * Class populates the imageview with the search results.
+ */
 public class searchResultPhotosController {
 
 

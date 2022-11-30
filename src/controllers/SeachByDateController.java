@@ -16,13 +16,20 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+
+/**
+ * Class controls the search by date event.
+ * Displays the dialog box to select dates range user wants to search by and,
+ * Gets the search results and displays them.
  */
 
 public class SeachByDateController {

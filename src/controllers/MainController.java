@@ -21,13 +21,18 @@ import java.util.ResourceBundle;
 
 
 
-/*
+/**
     Group 64
 
     Authors
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Main controller. Handles the login and loads appropriate user screen based on username input.
+ * Controls the initial starting of the application and creating stock user again, if it is deleted.
  */
 
 public class MainController implements Initializable, Serializable {
@@ -46,6 +51,11 @@ public class MainController implements Initializable, Serializable {
     EventHandler<MouseEvent> handler = this::eventHandlerOn;
     EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
 
+    /**
+     * Method loads admin screen.
+     * @param event
+     * @throws IOException
+     */
     public void loadAdminScreen(ActionEvent event) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("../FXMLFiles/Admin.fxml"));
         Stage mainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -55,6 +65,11 @@ public class MainController implements Initializable, Serializable {
         mainStage.show();
     }
 
+    /**
+     * Method handles the login event. Calls appropriate method to load screens based on input.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void logIn(ActionEvent actionEvent) throws IOException {
 
         String userNameText = userNameTextField.getText();
@@ -66,6 +81,12 @@ public class MainController implements Initializable, Serializable {
         }
     }
 
+    /**
+     * Method loads user screen with all user data stored in the database.
+     * @param actionEvent
+     * @param userName
+     * @throws IOException
+     */
     private void loadUserScreen(ActionEvent actionEvent, String userName) throws IOException {
         if(UserDataBaseController.getUserWithName(userName) == null){
             userDoesNotExistWarning.setVisible(true);
@@ -88,12 +109,21 @@ public class MainController implements Initializable, Serializable {
     }
 
 
+    /**
+     * Method closes the application and saves all the data.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void closeApplication(ActionEvent actionEvent) throws IOException {
         UserDataBaseController.writeToDataBase();
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Method creates stock user if it is deleted from the database.
+     * @throws IOException
+     */
     public static void createStockUser() throws IOException {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm");
@@ -180,47 +210,13 @@ public class MainController implements Initializable, Serializable {
 
 
         stockUser.addAlbum(stockAlbum);
-/*
-        Album stockAlbum1 = new Album();
-        stockAlbum1.setUsername(stockUser.getName());
-        stockAlbum1.setAlbumName("album1");
-        stockAlbum1.addPhoto(photo2);
-        stockUser.addAlbum((stockAlbum1));
-
-
-        Album stockAlbum2 = new Album();
-        stockAlbum2.setUsername(stockUser.getName());
-        stockAlbum2.setAlbumName("album2");
-        stockAlbum2.addPhoto(photo3);
-        stockUser.addAlbum((stockAlbum2));
-
-
-
-        Album stockAlbum3 = new Album();
-        stockAlbum3.setUsername(stockUser.getName());
-        stockAlbum3.setAlbumName("album3");
-        stockAlbum3.addPhoto(photo4);
-        stockUser.addAlbum((stockAlbum3));
-
-
-
-        Album stockAlbum4 = new Album();
-        stockAlbum4.setUsername(stockUser.getName());
-        stockAlbum4.setAlbumName("album4");
-        stockAlbum4.addPhoto(photo5);
-        stockUser.addAlbum((stockAlbum4));
-
-
-
-        Album stockAlbum5 = new Album();
-        stockAlbum5.setUsername(stockUser.getName());
-        stockAlbum5.setAlbumName("album5");
-        stockAlbum5.addPhoto(photo6);
-        stockUser.addAlbum((stockAlbum5));
-*/
         UserDataBaseController.addUser(stockUser);
     }
 
+    /**
+     * Handles the mouse hover events on the buttons
+     * @param mouseEvent
+     */
     public void eventHandlerOn(MouseEvent mouseEvent){
         Button button = (Button) mouseEvent.getSource();
         button.setStyle("-fx-background-color:#00ADB5");
@@ -231,6 +227,11 @@ public class MainController implements Initializable, Serializable {
     }
 
 
+    /**
+     * Method initializes the event listeners.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

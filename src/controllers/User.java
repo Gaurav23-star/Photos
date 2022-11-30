@@ -9,13 +9,17 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 
-/*
+/**
     Group 64
 
-    Authors
+    @Author
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+/**
+ * Class represents the user.
  */
 public class User implements Serializable {
     private ArrayList<String> availableTags = new ArrayList<>();
@@ -56,6 +60,11 @@ public class User implements Serializable {
         return null;
     }
 
+    /**
+     * Method to check if the photo already exists in the user's state of application
+     * @param uri
+     * @return
+     */
     public Photo checkForDuplicatePhotoInDifferentAlbums(String uri){
 
         for(Album album : albums){
@@ -67,6 +76,13 @@ public class User implements Serializable {
         }
         return null;
     }
+
+    /**
+     * Method to get the all the photos that user has that are in the given range of dates.
+     * @param startDate
+     * @param endDate
+     * @return List of photos in the date range
+     */
 
     public ArrayList<Photo> getPhotosInRange(LocalDate startDate, LocalDate endDate){
 
@@ -104,6 +120,11 @@ public class User implements Serializable {
 
     }
 
+    /**
+     * Method to get the all the photos that user have with the given tags
+     * @param searchTags
+     * @return List of photos with searched tags.
+     */
     public ArrayList<Photo> getPhotosWithTags(ArrayList<String> searchTags){
         String tag1;
         String tag2;
@@ -150,6 +171,12 @@ public class User implements Serializable {
         return searchResults;
     }
 
+    /**
+     * Helper method to search photos with tags.
+     * @param tag
+     * @param value
+     * @return
+     */
     private ArrayList<Photo> photosWithSingleTag(String tag, String value){
         ArrayList<Photo> matchingPhotos = new ArrayList<>();
         for(Album album : albums){
@@ -162,6 +189,15 @@ public class User implements Serializable {
         return matchingPhotos;
     }
 
+    /**
+     * Helper method to search photos with tags
+     * @param tag1
+     * @param tag1Value
+     * @param tag2
+     * @param tag2Value
+     * @param combination
+     * @return
+     */
     private ArrayList<Photo> photosWithTagCombination(String tag1, String tag1Value, String tag2, String tag2Value, String combination){
         ArrayList<Photo> matchingPhotos = new ArrayList<>();
 
@@ -188,6 +224,13 @@ public class User implements Serializable {
         return matchingPhotos;
     }
 
+    /**
+     * Method to check if the photo contains the given tag
+     * @param tag1
+     * @param tag1Value
+     * @param photo
+     * @return
+     */
     private boolean checkTagInPhoto(String tag1, String tag1Value, Photo photo){
         System.out.println("looking for " + tag1 + tag1Value);
         if(photo.containsTagWithValue(tag1, tag1Value)){
@@ -196,6 +239,11 @@ public class User implements Serializable {
         return false;
     }
 
+    /**
+     * Method to check if the user has used given tag in the past, and it is available in the used tags list.
+     * @param tag
+     * @return boolean value based on whether tag exists or not.
+     */
     public boolean containsTag(String tag){
         if(availableTags.contains(tag)){
             return true;

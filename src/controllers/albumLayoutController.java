@@ -20,13 +20,18 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-/*
+/**
     Group 64
 
     Authors
     gjp81: Gauravkumar Patel
     sm2246: Sami Munir
 
+ */
+
+
+/**
+ * Class controls the Display of Albums in the userview.
  */
 public class albumLayoutController {
     @FXML
@@ -52,6 +57,11 @@ public class albumLayoutController {
     EventHandler<MouseEvent> handler2 = this::eventHandlerOff;
 
 
+    /**
+     * Method sets the data to the album layout box, example: date range, thumbnail, size, name
+     * Method also sets the event listener to listen for user events such as delete album, edit album name
+     * @param album
+     */
     public void setData(Album album){
         Photo photo = album.getAlbumThumnail();
 
@@ -160,6 +170,12 @@ public class albumLayoutController {
         });
     }
 
+    /**
+     * Method to display all the photos on the album.
+     * @param mouseEvent
+     * @param album
+     * @throws IOException
+     */
     public void displayPhotosInAlbum(MouseEvent mouseEvent, Album album) throws IOException {
 
         DisplayPhotosInAlbumController.userName = album.getUsername();
@@ -172,6 +188,11 @@ public class albumLayoutController {
         mainStage.show();
     }
 
+    /**
+     * Handler handles the mouse hover event on buttons.
+     *
+     * @param mouseEvent
+     */
     public void eventHandlerOn(MouseEvent mouseEvent){
         Button button = (Button) mouseEvent.getSource();
         button.setStyle("-fx-background-color:#EEEEEE");
@@ -181,6 +202,12 @@ public class albumLayoutController {
         button.setStyle("-fx-background-color:#222831; -fx-text-fill:#EEEEEE");
     }
 
+
+    /**
+     * Method to refresh the album layout screen to display most upto date content.
+     * @param actionEvent
+     * @param userName
+     */
     public void refreshAlbumScree( ActionEvent actionEvent, String userName){
         UserViewController.userName = userName;
         AnchorPane root = null;
