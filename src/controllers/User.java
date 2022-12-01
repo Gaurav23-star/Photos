@@ -90,9 +90,9 @@ public class User implements Serializable {
         for(Album album : albums){
             for(Photo photo : album.getPhotosInAlbum()){
                 LocalDate filedate = Instant.ofEpochMilli(photo.getLastModifiedDate()).atZone(ZoneId.systemDefault()).toLocalDate();
-                System.out.println(photo.getPhotoDate());
+
                 if(startDate == null && endDate != null){
-                    System.out.println("2");
+
                     if(filedate.isBefore(endDate)){
                         if(!photosInRange.contains(photo)){
                             photosInRange.add(photo);
@@ -136,7 +136,7 @@ public class User implements Serializable {
         for(String search : searchTags){
             String[] split = search.split(" ");
             for(String string : split){
-                System.out.println(string);
+
             }
             tag1 = split[0];
             tag2 = split[3];
@@ -206,16 +206,16 @@ public class User implements Serializable {
                 Boolean tag1Combination = checkTagInPhoto(tag1, tag1Value, photo);
                 Boolean tag2Combination = checkTagInPhoto(tag2, tag2Value, photo);
                 if(combination.equalsIgnoreCase("and")){
-                    System.out.println("looking for and");
+
                     if(tag1Combination && tag2Combination){
-                        System.out.println("found for and");
+
                         matchingPhotos.add(photo);
                     }
                 }
                 else if(combination.equalsIgnoreCase("or")){
-                    System.out.println("looking for or");
+
                     if(tag1Combination || tag2Combination){
-                        System.out.println("found for or");
+
                         matchingPhotos.add(photo);
                     }
                 }
@@ -232,7 +232,7 @@ public class User implements Serializable {
      * @return
      */
     private boolean checkTagInPhoto(String tag1, String tag1Value, Photo photo){
-        System.out.println("looking for " + tag1 + tag1Value);
+
         if(photo.containsTagWithValue(tag1, tag1Value)){
             return true;
         }

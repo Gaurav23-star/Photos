@@ -134,40 +134,66 @@ public class albumLayoutController {
         editAlbumButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("../fxmlfiles/dialogBox.fxml"));
-                DialogPane albumlistDialog = null;
-                try {
-                    albumlistDialog = fxmlLoader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                Dialog<ButtonType> dialog = new Dialog<>();
-                dialog.setDialogPane(albumlistDialog);
-                dialog.setTitle("Edit Album Name");
-
-                VBox vBox = (VBox) albumlistDialog.getChildren().get(4);
-                Label titleLable = (Label) vBox.getChildren().get(0);
-                titleLable.setText("Edit Album");
-                HBox hbox = (HBox) albumlistDialog.getChildren().get(3);
-                Label promptLable = (Label) hbox.getChildren().get(0);
-                promptLable.setText("New Album Name");
-                TextField textField = (TextField) hbox.getChildren().get(1);
-                textField.setText(album.getAlbumName());
-                textField.setPromptText("album name");
-                textField.positionCaret(album.getAlbumName().length());
-                textField.requestFocus();
-                Optional<ButtonType> clickedButton = dialog.showAndWait();
-                //here need to implement checker to find out duplicate album name
-                if(clickedButton.get() == ButtonType.APPLY){
-                    String newAlbumnName = textField.getText();
-                    album.setAlbumName(newAlbumnName);
-                    String userName = album.getUsername();
-                    refreshAlbumScree(actionEvent, userName);
-                }
-
+                askForNewEditedAlbumName(album, actionEvent);
             }
         });
+    }
+
+    public void askForNewEditedAlbumName(Album album, ActionEvent actionEvent){
+        User user = UserDataBaseController.getUserWithName(album.getUsername());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("../fxmlfiles/dialogBox.fxml"));
+        DialogPane albumlistDialog = null;
+        try {
+            albumlistDialog = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setDialogPane(albumlistDialog);
+        dialog.setTitle("Edit Album Name");
+
+        VBox vBox = (VBox) albumlistDialog.getChildren().get(4);
+        Label titleLable = (Label) vBox.getChildren().get(0);
+        titleLable.setText("Edit Album");
+        HBox hbox = (HBox) albumlistDialog.getChildren().get(3);
+        Label promptLable = (Label) hbox.getChildren().get(0);
+        promptLable.setText("New Album Name");
+        TextField textField = (TextField) hbox.getChildren().get(1);
+        textField.setText(album.getAlbumName());
+        textField.setPromptText("album name");
+        textField.positionCaret(album.getAlbumName().length());
+        textField.requestFocus();
+        Optional<ButtonType> clickedButton = dialog.showAndWait();
+        //here need to implement checker to find out duplicate album name
+        if(clickedButton.get() == ButtonType.APPLY){
+            if(textField.getText().trim() == ""){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.getDialogPane().setStyle("-fx-background-color: #222831");
+                alert.setTitle("Enter Album Name");
+                alert.setHeaderText("You must enter a album name!");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                askForNewEditedAlbumName(album, actionEvent);
+            }
+            else if(user.getAlbumWithName(textField.getText().trim()) != null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.getDialogPane().setStyle("-fx-background-color: #222831");
+                alert.setTitle("Enter Different Name");
+                alert.setHeaderText("Album name you entered already exists!");
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                askForNewEditedAlbumName(album, actionEvent);
+            }
+            else {
+                changeAlbumName(textField.getText().trim(), album, actionEvent);
+            }
+        }
+    }
+    public void changeAlbumName(String newAlbumName, Album album, ActionEvent actionEvent){
+        String newAlbumnName = newAlbumName;
+        album.setAlbumName(newAlbumnName);
+        String userName = album.getUsername();
+        refreshAlbumScree(actionEvent, userName);
+
     }
 
     /**
