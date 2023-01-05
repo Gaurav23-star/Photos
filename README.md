@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/59610677/210891004-212b3a4a-70a2-4738-b609-94ab0d06e713.mov
+
 A single-user photo application that allows storage and management of photos in one or more albums. All user interaction is implemented in Java FX, and all UIs--except for standard Java FX dialogs such as Alert and TextInputDialog--must be designed in FXML. Used multiple stages to show complex secondary windows, and switch multiple scenes within a stage.
 
 Features:
