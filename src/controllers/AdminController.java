@@ -22,15 +22,6 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/**
-    Group 64
-
-    @Author
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
- */
-
 
 /**
  * Controller for the admin user screen.
