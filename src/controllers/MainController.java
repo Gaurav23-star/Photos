@@ -22,15 +22,6 @@ import java.util.ResourceBundle;
 
 
 /**
-    Group 64
-
-    Authors
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
- */
-
-/**
  * Main controller. Handles the login and loads appropriate user screen based on username input.
  * Controls the initial starting of the application and creating stock user again, if it is deleted.
  */
