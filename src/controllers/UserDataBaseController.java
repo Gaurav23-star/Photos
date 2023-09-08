@@ -4,16 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
-    Group 64
-
-    @Author
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
- */
-
-/**
- * Class represents user data base and controls the database.
+ * Class represents user database and controls the database.
  */
 public abstract class UserDataBaseController implements Serializable {
     private static ArrayList<User> usersList;

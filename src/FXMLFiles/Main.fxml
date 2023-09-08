@@ -56,21 +56,33 @@
                   <Label fx:id="userDoesNotExistWarning" alignment="CENTER" prefHeight="104.0" prefWidth="835.0" text="The user does not exist. Enter a different username" textFill="RED" visible="false" />
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="48.0" prefWidth="606.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="userNameTextField" alignment="CENTER" prefHeight="43.0" prefWidth="299.0" promptText="Username">
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
+                  <VBox alignment="CENTER" prefHeight="93.0" prefWidth="252.0">
+                     <children>
+                        <TextField fx:id="userNameTextField" alignment="CENTER" prefHeight="31.0" prefWidth="653.0" promptText="Username">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="passwordTextField" alignment="CENTER" prefHeight="31.0" prefWidth="653.0" promptText="password">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox prefHeight="259.0" prefWidth="800.0">
                <children>
-                  <Button fx:id="logInButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logIn" prefHeight="37.0" prefWidth="207.0" style="-fx-background-color:#222831; -fx-text-fill:#EEEEEE" text="LOGIN" translateX="305.0">
+                  <Button fx:id="logInButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logIn" prefHeight="37.0" prefWidth="193.0" style="-fx-background-color:#222831; -fx-text-fill:#EEEEEE" text="LOGIN" translateX="305.0">
                      <HBox.margin>
                         <Insets top="25.0" />
                      </HBox.margin>
@@ -78,6 +90,7 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
+
                </children>
             </HBox>
             <Button fx:id="closeApplicationButton" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#closeApplication" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color:#222831; -fx-text-fill:#EEEEEE" text="Close Application" textAlignment="RIGHT">

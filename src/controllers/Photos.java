@@ -13,19 +13,7 @@ import javafx.stage.WindowEvent;
 import java.io.*;
 
 /**
-    Group 64
-
-    @Author
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
-    NOTE TO GRADER: Assignment asks for safe exit out of the application at any time, so there is no extra button,
-                    just close the application as you would do in real life and the progress will be saved. Thanks.
-
- */
-
-/**
- * Class contatining Main method to start the application.
+ * Class containing Main method to start the application.
  */
 
 public class Photos extends Application {

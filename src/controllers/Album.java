@@ -7,15 +7,6 @@ import java.util.ArrayList;
 
 
 /**
-    Group 64
-
-    @Author
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
- */
-
-/**
  * Class represents the album. Stores the Album name, Username which albums belong to,
  * and list storing all the photos on the album.
  */

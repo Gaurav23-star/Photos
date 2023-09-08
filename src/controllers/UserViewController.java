@@ -19,15 +19,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
-    Group 64
-
-    @Author
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
- */
-
-/**
  * Class controls the userview screen.
  */
 

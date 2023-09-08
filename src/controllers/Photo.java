@@ -7,15 +7,6 @@ import java.util.Date;
 import java.util.Hashtable;
 
 /**
-    Group 64
-
-    Authors
-    gjp81: Gauravkumar Patel
-    sm2246: Sami Munir
-
- */
-
-/**
  * Class represents the photo.
  */
 
